@@ -1,5 +1,17 @@
 <?php
+    session_start();
     require 'config.php';
+    if(isset($_POST['qty'])){
+        $qty = $_POST['qty'];
+        $pid = $_POST['pid'];
+        $pprice = $_POST['pprice'];
+
+        $tprice = $qty*$pprice;
+
+        $stmt = $conn->prepare("UPDATE cart SET qty=?, total_price=? WHERE id=?");
+        $stmt->bind_param('isi',$qty,$tprice,$pid);
+        $stmt->execute();
+    }
     if(isset($_POST['pid'])){
         $pid = $_POST['pid'];
         $pname = $_POST['pname'];
@@ -17,7 +29,7 @@
 
         if(!$code){
             $query = $conn->prepare("INSERT INTO cart (product_name,product_price,product_image,qty,total_price,product_code) VALUES (?,?,?,?,?,?)");
-            $query->bind_param("sssiss",$pname,$pprice,$pimage,$pqty,$pcode,$pcode);
+            $query->bind_param("sssiss",$pname,$pprice,$pimage,$pqty,$pprice,$pcode);
             $query->execute();
             echo '<div class="alert alert-success alert-dismissible">
                     <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -31,7 +43,6 @@
                 </div>';
         }
     }
-
     if(isset($_GET['cartItem']) && isset($_GET['cartItem']) == 'cart_item' ){
         $stmt = $conn->prepare("SELECT * FROM cart");
         $stmt->execute();
@@ -40,4 +51,25 @@
 
         echo $rows;
     }
+
+    if(isset($_GET['remove'])){
+        $id = $_GET['remove'];
+
+        $stmt = $conn->prepare("DELETE FROM cart WHERE id=?");
+        $stmt->bind_param("i",$id);
+        $stmt->execute();
+
+        $_SESSION['showAlert'] = 'block';
+        $_SESSION['message'] = 'Item removed from the cart!';
+        header('location:cart.php');
+    }
+    if(isset($_GET['clear'])){
+        $stmt = $conn->prepare("DELETE FROM cart");
+        $stmt->execute();
+        $_SESSION['showAlert'] = 'block';
+        $_SESSION['message'] = 'All item removed from the cart!';
+        header('location:cart.php');
+
+    }
+    
 ?>
