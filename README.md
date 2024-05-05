@@ -1,5 +1,6 @@
 # CISC3003-Individual_part
 This individual project is to develop a shopping cart in full-stack web development.<br>
+
 >The project uses the following tools to develop: <br>
 >* HTML5
 >* CSS3
