@@ -3,6 +3,7 @@ This individual project is to develop a shopping cart in full-stack web developm
 Attention: this project is for education purpose.
 
 <br>
+
 >The project uses the following tools to develop: <br>
 >* HTML5
 >* CSS3
