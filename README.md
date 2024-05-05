@@ -16,15 +16,15 @@ Attention: this project is for education purpose.
 Create a database called "cart" in your database system.<br>
 ![](https://github.com/dc22603/CISC3003-Individual_part/raw/main/readmeimg/setup1.jpg)
 <br>
-Then import the file called "cart_system.sql" in the downloadable content.<br>
+Then import the file called "<span style="color:blue">cart_system.sql</span>." in the downloadable content.<br>
 ![](https://github.com/dc22603/CISC3003-Individual_part/raw/main/readmeimg/setup2.jpg)
 <br>
 Finally you will have something like this<br>
 ![](https://github.com/dc22603/CISC3003-Individual_part/raw/main/readmeimg/setup3.jpg)
 <br>
-Remember to change the port of config.php (Which you can find in the above downloadable content) to your MySQL's port!<br>
+Remember to change the port of <span style="color:red">config.php</span>. (Which you can find in the above downloadable content) to your MySQL's port!<br>
 >\<?php
-$conn = new mysqli("localhost:3316","root","","cart"); // Change the port here <br> 
+$conn = new mysqli("localhost:3316","root","","cart"); <span style="color:green">// Change the port here</span>. <br> 
 &nbsp;&nbsp;&nbsp;&nbsp;if($conn->connect_error){<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;die("Connection Failed!".$conn->connect_error);<br>
 &nbsp;&nbsp;&nbsp;&nbsp;}<br>
