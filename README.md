@@ -1,7 +1,7 @@
 # CISC3003-Individual_part-DC226032
 This individual project is to develop a shopping cart in full-stack web development.<br>
 Attention: this project is for education purpose.
-![My CISC3003-Individual_Project](https://github.com/dc22603/CISC3003-Individual_part)
+[My CISC3003-Individual_Project](https://github.com/dc22603/CISC3003-Individual_part)
 <br>
 
 >The project uses the following tools to develop: <br>
